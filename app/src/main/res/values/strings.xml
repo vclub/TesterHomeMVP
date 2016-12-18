@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TesterHomeApp</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_item_topic">话题</string>
+    <string name="navigation_item_wiki">知识库</string>
+    <string name="navigation_item_favorite">收藏</string>
+    <string name="navigation_item_notification">通知</string>
+</resources>
