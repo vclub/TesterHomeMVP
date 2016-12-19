@@ -6,10 +6,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.MenuItem;
 
 import com.testerhome.nativeandroid.R;
-import com.testerhome.nativeandroid.fragments.TopicListFragment;
+import com.testerhome.nativeandroid.views.activities.topics.TopicListFragment;
 import com.testerhome.nativeandroid.fragments.WebViewFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         // fragment_container
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation_view);
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
 
-        fragmentTransaction.commitNowAllowingStateLoss();
+        fragmentTransaction.commit();
         return true;
     }
 

@@ -1,5 +1,7 @@
 package com.testerhome.nativeandroid.data;
 
+import com.testerhome.nativeandroid.data.remote.model.TopicDetailResponse;
+import com.testerhome.nativeandroid.data.remote.model.TopicReplyResponse;
 import com.testerhome.nativeandroid.data.remote.model.TopicsResponse;
 
 import io.reactivex.Observable;
@@ -11,4 +13,9 @@ import io.reactivex.Observable;
 public interface THRepository {
 
     Observable<TopicsResponse> getTopicList(String type, int offset);
+
+
+    Observable<TopicDetailResponse> getTopicDetail(String topicId);
+
+    Observable<TopicReplyResponse> getTopicsReplies(String topicId, int offset);
 }

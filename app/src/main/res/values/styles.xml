@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="selectableItemBackgroundGeneral">@drawable/selectable_item_background_general_light</item>
+
     </style>
 
     <style name="AppTheme.FullScreen" parent="@style/Theme.AppCompat.DayNight">
@@ -14,5 +17,7 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+
 
 </resources>

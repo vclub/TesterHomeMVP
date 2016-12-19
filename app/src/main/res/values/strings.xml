@@ -6,4 +6,12 @@
     <string name="navigation_item_wiki">知识库</string>
     <string name="navigation_item_favorite">收藏</string>
     <string name="navigation_item_notification">通知</string>
+
+    <string name="reply_count_info">%d条回复</string>
+    <string name="send">发送</string>
+    <string name="fab_scrolling_view_behavior" translatable="false">com.testerhome.nativeandroid.views.widgets.ScrollAwareFABBehavior</string>
+
+
+    <string name="string_loading">Loading&#8230;</string>
+    <string name="error_view_oops">Oops</string>
 </resources>

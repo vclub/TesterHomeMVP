@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_topic_reply_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/id_user_avatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp" />
+
+    <TextView
+        android:id="@+id/id_topic_item_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/id_user_avatar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/id_user_avatar"
+        android:textSize="14sp"
+        tools:text="topic author" />
+
+    <TextView
+        android:id="@+id/id_topic_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/id_user_avatar"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/id_topic_item_author"
+        tools:text="topic time" />
+
+    <zhou.widget.RichText
+        android:id="@+id/id_topic_item_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_topic_item_author"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/id_user_avatar"
+        android:autoLink="email|web"
+        tools:text="topic content" />
+
+    <LinearLayout
+        android:id="@+id/id_praise_reply_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_topic_item_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:drawableLeft="@drawable/ic_heart_outline_grey"
+            android:text="点赞" />
+
+        <TextView
+            android:id="@+id/tv_reply_to_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_comment_outline_grey"
+            android:drawablePadding="3dp"
+            android:text="回复" />
+    </LinearLayout>
+
+</RelativeLayout>

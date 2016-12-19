@@ -19,8 +19,10 @@ public class BasePresenter<T extends MvpView> implements MvpPresenter<T> {
 
     @Override
     public void detachView() {
-        mCompositeDisposable.clear();
-        view = null;
+        if (isViewAttached()) {
+            mCompositeDisposable.clear();
+            view = null;
+        }
     }
 
     public T getView() {

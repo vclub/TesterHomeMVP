@@ -1,9 +1,9 @@
 package com.testerhome.nativeandroid.fragments;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import com.testerhome.nativeandroid.Config;
 import com.testerhome.nativeandroid.R;
 import com.testerhome.nativeandroid.fragments.base.BaseFragment;
 
@@ -19,9 +19,19 @@ public class WebViewFragment extends BaseFragment {
     WebView mWebView;
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void setupView() {
+        super.setupView();
+        if (mWebView != null){
 
+            mWebView.setWebViewClient(new WebViewClient(){
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    return super.shouldOverrideUrlLoading(view, url);
+                }
+            });
+
+            mWebView.loadUrl(Config.WIKI_URL);
+        }
     }
 
     @Override
@@ -29,9 +39,4 @@ public class WebViewFragment extends BaseFragment {
         return R.layout.fragment_webview;
     }
 
-    @Override
-    protected void setupView() {
-        super.setupView();
-        mWebView.loadUrl("https://www.bing.com");
-    }
 }

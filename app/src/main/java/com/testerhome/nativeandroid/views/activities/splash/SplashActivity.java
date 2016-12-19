@@ -15,6 +15,8 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+
+
         findViewById(R.id.btn_dark).setOnClickListener(view -> {
 
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -29,8 +31,6 @@ public class SplashActivity extends BaseActivity {
         });
 
         findViewById(R.id.btn_next).setOnClickListener(view -> {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-
             startActivity(new Intent(this, MainActivity.class));
             this.finish();
         });

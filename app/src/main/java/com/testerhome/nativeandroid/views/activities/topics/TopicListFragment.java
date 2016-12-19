@@ -1,4 +1,4 @@
-package com.testerhome.nativeandroid.fragments;
+package com.testerhome.nativeandroid.views.activities.topics;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,8 +12,6 @@ import com.testerhome.nativeandroid.R;
 import com.testerhome.nativeandroid.data.remote.model.TopicsResponse;
 import com.testerhome.nativeandroid.fragments.base.BaseFragment;
 import com.testerhome.nativeandroid.injection.Injection;
-import com.testerhome.nativeandroid.views.activities.topics.TopicContract;
-import com.testerhome.nativeandroid.views.activities.topics.TopicListPresenter;
 import com.testerhome.nativeandroid.views.adapters.TopicListAdapter;
 
 import butterknife.BindView;
@@ -36,15 +34,19 @@ public class TopicListFragment extends BaseFragment implements TopicContract.Vie
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        topicPresenter = new TopicListPresenter(Injection.provideThRepo(), AndroidSchedulers.mainThread(), Schedulers.io());
+        topicPresenter.attachView(this);
 
         Toolbar demo = ((Toolbar) getView().findViewById(R.id.toolbar));
         demo.setTitle("test");
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(demo);
 
-        topicPresenter = new TopicListPresenter(Injection.provideThRepo(), AndroidSchedulers.mainThread(), Schedulers.io());
-        topicPresenter.attachView(this);
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
         topicPresenter.getTopics(Config.TOPICS_TYPE_RECENT, 20);
     }
 
@@ -63,9 +65,9 @@ public class TopicListFragment extends BaseFragment implements TopicContract.Vie
     protected void setupView() {
         super.setupView();
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter = new TopicListAdapter(getContext()));
-
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mAdapter = new TopicListAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
